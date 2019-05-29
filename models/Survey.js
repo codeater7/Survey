@@ -10,8 +10,9 @@ const surveySchema = new Schema({
     recipients : [RecipientSchema],
     yes:{type:Number, default:0},
     no:{type:Number, default:0},
-    _user: {type:Schema.Types.ObjectId,ref:'User'},
+    _user: {type:Schema.Types.ObjectId,ref:'User'}, // ibelongto user will tell mongoose that reference made earlier (object_id) belongs to users collection
     // _ referes to as reference field that sets up the relationship between a given schema and given user
+    // _ is relationship field
     dateSent: Date,
     lastResponded: Date
 
