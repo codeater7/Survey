@@ -6,7 +6,7 @@ const keys = require('./config/keys')
 
 
 require('./models/User'); // model being created first and passport the second
-require("./services/passport");
+require("./services/emailTemplates/passport");
 require('./models/Survey');
 require('./models/Recipients');
 
