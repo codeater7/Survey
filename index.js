@@ -2,13 +2,15 @@ const express = require("express");
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport= require('passport');    // passport is to say use them to cookie
-const keys = require('./config/keys')
+const keys = require('./config/keys');
+const bodyParser = require('body-parser');
 
 
 require('./models/User'); // model being created first and passport the second
 require("./services/emailTemplates/passport");
 require('./models/Survey');
 require('./models/Recipients');
+
 
 
 
@@ -29,6 +31,7 @@ app.use(passport.session());
 
 require("./routes/authRoutes")(app); 
 require("./routes/surveyRoutes")(app);
+require('./routes/billingRoutes')(app);
 
 
 // valid 
