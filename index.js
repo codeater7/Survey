@@ -32,6 +32,7 @@ app.use(passport.session());
 require("./routes/authRoutes")(app); 
 require("./routes/surveyRoutes")(app);
 require('./routes/billingRoutes')(app);
+// authRoute and billing Route export a function, so this require statement is turning into a function which we immediately call with the expressess app object
 
 
 // valid 

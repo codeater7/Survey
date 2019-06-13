@@ -13,7 +13,7 @@ window.axios = axios;
 
 
 //const store = createStore(() => [ ],{}, applyMiddleware(reduxThunk) );    // middleware invoked with ()
-const store = createStore(reducers, applyMiddleware(reduxThunk) ); 
+const store = createStore(reducers, {}, applyMiddleware(reduxThunk) ); 
 
 
 ReactDOM.render(
