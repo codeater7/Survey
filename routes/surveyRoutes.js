@@ -1,10 +1,16 @@
 const mongoose = require('mongoose');
 const Mailer = require('../services/emailTemplates/Mailer');
 const surveyTemplate = require('../services/emailTemplates/surveyTemplates');
+requireLogin = require('../middlewares/requireLogin');
 
 const Survey = mongoose.model('surveys');
+
+
 module.exports = app => {
-    app.post ('/api/surveys', (req,res)=>{
+    app.get('/api/surveys/thanks',(req,res)=>{
+        res.send('Thanks you for voting');
+    });
+    app.post ('/api/surveys',requireLogin, async (req,res)=>{
         const { title, subject, body, recipients}=req.body; 
         // access to differernt property
 
@@ -23,7 +29,16 @@ module.exports = app => {
 
         //Great place to send email
         const mailer = new Mailer(survey,surveyTemplate(survey)); // 1st parameter is  object and 2nd parameter is html
-        mailer.send();
+        
+        try{
+        await mailer.send();
+        await survey.save();
+        req.user.credits -=1;
+        const user = await req.user.save(); // this is the user from now onwards
+        res.send(user);
+        } catch(err){
+            res.status(422).send(err);  // something is wrong that you sent us
+        }
     });
 };
 
