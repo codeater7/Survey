@@ -4,7 +4,7 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 //not to get problem when running the test
 const mongoose = require('mongoose');
 
-const keys = require("../../config/keys");
+const keys = require("../config/keys");
 const User = mongoose.model('users');  // creating a user model
 
 passport.serializeUser((user, done)=>{

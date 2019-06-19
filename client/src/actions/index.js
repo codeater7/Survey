@@ -7,8 +7,18 @@ export const fetchUser = ()=>  async dispatch=>{
     };
 
     
-export const handleToken = (token) =>async dispatch => {      //action creater 
+export const handleToken = (token) =>async dispatch => {      // new action creater 
     const res = await axios.post('/api/stripe', token);
 
     dispatch ({type:FETCH_USER, payload:res.data });
+};
+
+
+
+export const submitSurvey =(values, history) =>async dispatch =>{  // new action creater
+    //return {type:'submit_survey'};
+    const res = await axios.post('/api/surveys', values);
+    history.push('/surveys');
+
+    dispatch ({type:FETCH_USER,payload :res.data});
 };

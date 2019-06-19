@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 
 
 require('./models/User'); // model being created first and passport the second
-require("./services/emailTemplates/passport");
+require("./services/passport");
 require('./models/Survey');
 require('./models/Recipients');
 
@@ -15,6 +15,7 @@ require('./models/Recipients');
 
 
 //connceting to the moongoose database 
+mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI);
 
 const app = express();

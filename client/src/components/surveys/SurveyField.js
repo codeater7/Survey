@@ -16,3 +16,4 @@ export default ({input, label, meta:{error, touched}} )=>{
         </div>
     );
 };
+//{input, label, meta:{error, touched}}
