@@ -32,6 +32,7 @@ const SurveyFormReview = ({onCancel, formValues, submitSurvey, history}) =>{
             
         </div>
     );
+    
 //mathi Send Survey  button ma onclick we call action creater i.e submitSurvey, 
 // with prop named as formValues (we can name ourself  in function mapStateToProps) but has to be sent as props to above component
 //SubmitSurvey is action creater but instantly send na-huna ko lagi chai we use arrow function
