@@ -9,14 +9,13 @@ const bodyParser = require('body-parser');
 require('./models/User'); // model being created first and passport the second
 require("./services/passport");
 require('./models/Survey');
-require('./models/Recipients');
 
 
 
 
 //connceting to the moongoose database 
 mongoose.Promise = global.Promise;
-mongoose.connect(keys.mongoURI);
+mongoose.connect(keys.mongoURI, {useNewUrlParser:true});
 
 const app = express();
 app.use(bodyParser.json());
