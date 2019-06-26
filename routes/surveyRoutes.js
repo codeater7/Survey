@@ -13,7 +13,8 @@ const Survey = mongoose.model('surveys');
 module.exports = app => {
 
     app.get('/api/surveys',requireLogin, requireCredits, async(req,res)=>{
-        const surveys = await (Survey.find({_user: req.user.id}));     //the one who has made the survey
+        const surveys = await Survey.find({_user: req.user.id})    //the one who has made the survey
+        .select({recipients: false}); // do not give recipients list
 
         res.send =(surveys);
 
