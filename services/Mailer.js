@@ -53,4 +53,6 @@ class Mailer extends helper.Mail{
 
 //when we have javascript class,and call new automatically there has to be constructor : es2015 classes
 
+// when there is like (new Mailer(...) , automatically there should be constructor, new )
+
 module.exports = Mailer;
