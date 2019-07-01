@@ -132,11 +132,11 @@ module.exports = app => {
 			await mailer.send();
 			await survey.save();
 			req.user.credits -= 1;
-			const user = await req.user.save(); // this is the user from now onwards
+			const user = await req.user.save();  // this is the user from now onwards
 
 			res.send(user);
 		} catch (err) {
-			res.status(422).send(err); // something is wrong that you sent us
+			res.status(422).send(err);  // something is wrong that you sent us
 		}
 	});
 }; */
