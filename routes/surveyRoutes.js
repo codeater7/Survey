@@ -109,6 +109,8 @@ module.exports = app => {
         }
 
         
+
+
 	app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
 		const { title, subject, body, recipients } = req.body; // access to differernt property
 
@@ -141,6 +143,8 @@ module.exports = app => {
 		}
 	});
 }; */
+
+
 
 // Web hook: It is anything where some outside API is fascilitating some process and gives our application somekind of callback.(SANDHOOK)
 
