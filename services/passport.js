@@ -1,10 +1,11 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
+//const GoogleStrategy = require("passport-google-oauth20");
 
 //not to get problem when running the test
 const mongoose = require('mongoose');
-
 const keys = require("../config/keys");
+
 const User = mongoose.model('users');  // creating a user model
 
 passport.serializeUser((user, done)=>{
@@ -19,14 +20,14 @@ passport.deserializeUser((id, done)=>{
 });
 
 
-passport.use(
-  new GoogleStrategy(
+passport.use( new GoogleStrategy(
     { 
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
       callbackURL: "/auth/google/callback",
       proxy:true
     },
+    // google wll give us accesstoken, refreshtoken => that allows to refresh accesstoken and profile has our info.
     async (accessToken, refreshToken, profile, done) => {
         const existingUser = await User.findOne({googleId: profile.id})
 
@@ -39,3 +40,6 @@ passport.use(
         }
     )
 );
+
+
+// app.get('/auth/google/callback', passport.authenticate('google))

@@ -5,7 +5,7 @@ import {reduxForm, Field} from 'redux-form';  // one specific function {}
 import SurveyField from './SurveyField';
 import {Link} from 'react-router-dom';
 import validateEmails from '../../utils/validateEmail';
-import formField from './formField';
+//import formField from './formField';
 
 const formFields =[
     {label:'Survey Title', name:'title'},
