@@ -8,13 +8,16 @@ export const fetchUser = () => async dispatch => {
 
 export const handleToken = token => async dispatch => {
 	// new action creater
-	const res = await axios.post('/api/stripe', token);
+	const res = await axios.post('/api/stripe', token);  // Action ( perform task, call new api etc, in this case call api)
 
-	dispatch({ type: FETCH_USER, payload: res.data });
+	dispatch({ 
+		type: FETCH_USER,                                // Dispatch Action( which has type and payload)
+		payload: res.data
+		 });
 };
 
 export const submitSurvey = (values, history) => async dispatch => {
-	// new action creater
+
 	//return {type:'submit_survey'};
 	const res = await axios.post('/api/surveys', values);
 	history.push('/surveys');
