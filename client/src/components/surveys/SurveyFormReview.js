@@ -9,9 +9,8 @@ import * as actions from '../../actions';
 
 // onCancel  and others are the props we bring from another component
 const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
-	const reviewFields = _.map(formFields, ({name, label}) => {
-		// ES6 ma hamlai name ra label chaieeako 6 label bata so
-		// ({name, label }) garna milxa label so satta   ani field.name ko satta name matra lekhna sakinxa
+	const reviewFields = _.map(formFields, ({ name, label }) => {
+	
 		return (
 			<div key={name}>
 				<label>{label}</label>
@@ -22,14 +21,14 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
 	return (
 		<div>
 			<h5>Please confirm your entries</h5>
-             {reviewFields}
+			{reviewFields}
 			<button className="yellow darken-3  white-txt btn-flat" onClick={onCancel}>
-			 Back 
+				Back
 			</button>
 
 			<button onClick={() => submitSurvey(formValues, history)} className="green btn-flat right white-txt">
-				Send Survey 
-                <i className="material-icons right">email</i>
+				Send Survey
+				<i className="material-icons right">email</i>
 			</button>
 		</div>
 	);

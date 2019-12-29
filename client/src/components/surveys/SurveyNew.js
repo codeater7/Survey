@@ -32,5 +32,6 @@ class SurveyNew extends Component{
 export default reduxForm({
     form:'surveyForm'
 })( SurveyNew);
+// to clear the data when we dont want, we are going one block above the paradagim
 
-//Reduxform by default; if the component is unmounted, the values are dumped by default
+// By default wont store it 
