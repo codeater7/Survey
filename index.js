@@ -11,7 +11,7 @@ require('./models/Survey');
 
 //connceting to the moongoose database
 mongoose.Promise = global.Promise;
-mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
+mongoose.connect(keys.mongoURI, { useNewUrlParser: true,  useUnifiedTopology: true });
 
 const app = express();
 app.use(bodyParser.json());
